@@ -1,0 +1,129 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$sprite_icon_branding_name = 'sprite_icon_branding';
+$sprite_icon_branding_x = 0px;
+$sprite_icon_branding_y = 0px;
+$sprite_icon_branding_offset_x = 0px;
+$sprite_icon_branding_offset_y = 0px;
+$sprite_icon_branding_width = 81px;
+$sprite_icon_branding_height = 81px;
+$sprite_icon_branding_total_width = 162px;
+$sprite_icon_branding_total_height = 162px;
+$sprite_icon_branding_image = '../img/sprite.png';
+$sprite_icon_branding = 0px 0px 0px 0px 81px 81px 162px 162px '../img/sprite.png' 'sprite_icon_branding';
+$sprite_icon_illustrations_name = 'sprite_icon_illustrations';
+$sprite_icon_illustrations_x = 81px;
+$sprite_icon_illustrations_y = 0px;
+$sprite_icon_illustrations_offset_x = -81px;
+$sprite_icon_illustrations_offset_y = 0px;
+$sprite_icon_illustrations_width = 81px;
+$sprite_icon_illustrations_height = 81px;
+$sprite_icon_illustrations_total_width = 162px;
+$sprite_icon_illustrations_total_height = 162px;
+$sprite_icon_illustrations_image = '../img/sprite.png';
+$sprite_icon_illustrations = 81px 0px -81px 0px 81px 81px 162px 162px '../img/sprite.png' 'sprite_icon_illustrations';
+$sprite_icon_logo_name = 'sprite_icon_logo';
+$sprite_icon_logo_x = 0px;
+$sprite_icon_logo_y = 81px;
+$sprite_icon_logo_offset_x = 0px;
+$sprite_icon_logo_offset_y = -81px;
+$sprite_icon_logo_width = 81px;
+$sprite_icon_logo_height = 81px;
+$sprite_icon_logo_total_width = 162px;
+$sprite_icon_logo_total_height = 162px;
+$sprite_icon_logo_image = '../img/sprite.png';
+$sprite_icon_logo = 0px 81px 0px -81px 81px 81px 162px 162px '../img/sprite.png' 'sprite_icon_logo';
+$sprite_icon_web_name = 'sprite_icon_web';
+$sprite_icon_web_x = 81px;
+$sprite_icon_web_y = 81px;
+$sprite_icon_web_offset_x = -81px;
+$sprite_icon_web_offset_y = -81px;
+$sprite_icon_web_width = 81px;
+$sprite_icon_web_height = 81px;
+$sprite_icon_web_total_width = 162px;
+$sprite_icon_web_total_height = 162px;
+$sprite_icon_web_image = '../img/sprite.png';
+$sprite_icon_web = 81px 81px -81px -81px 81px 81px 162px 162px '../img/sprite.png' 'sprite_icon_web';
+$spritesheet_width = 162px;
+$spritesheet_height = 162px;
+$spritesheet_image = '../img/sprite.png';
+$spritesheet_sprites = $sprite_icon_branding $sprite_icon_illustrations $sprite_icon_logo $sprite_icon_web;
+$spritesheet = 162px 162px '../img/sprite.png' $spritesheet_sprites;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}

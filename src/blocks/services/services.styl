@@ -1,0 +1,67 @@
+.services
+  padding-top 30px
+  padding-bottom 20px
+
+.services_wrap
+  display flex
+  flex-flow column nowrap
+  margin-top 70px
+
+.service
+  padding 0 15px
+
+.service__icon
+  margin-bottom 15px
+  margin-left auto
+  margin-right auto
+
+.service__title
+  color grey
+  font-family font_sans-serif
+  font-size 18px
+  font-weight 600
+  position relative
+  text-align center
+
+.service__title::after,
+.service__title:after
+  content ""
+  background grey
+  bottom -15px
+  height 1px
+  left 50%
+  margin-left -20px
+  position absolute
+  width 41px
+
+.service__description
+  color grey_light
+  font-family font_sans-serif
+  font-size 12px
+  font-weight 300
+  margin-bottom 30px
+  margin-top 35px
+  text-align center
+
+@media (min-width: tablet)
+  .services
+    padding-top 50px
+    padding-bottom 40px
+  
+  .service
+    width 250px
+
+  .services_wrap
+    align-items center
+    flex-flow row wrap
+    margin-top 100px
+    justify-content center
+
+@media (min-width: screen)
+  .services
+    padding-top 70px
+    padding-bottom 60px
+  
+  .services_wrap
+    flex-flow row nowrap
+    margin-top 130px
