@@ -5,21 +5,17 @@
 
 .portfolio__works
   display flex
-  flex-flow row wrap
-  margin-top 50px
-  justify-content center
+  flex-flow column wrap
+  margin 0 auto
+  width 300px
 
 .portfolio__item
-  margin-bottom 15px
-  margin-right 15px
-
-.portfolio__item:nth-child(3n)
-  margin-right 0
+    margin-bottom 15px
 
 .portfolio__img
-  height 281px
+  height 201px
   overflow hidden
-  width 380px
+  width 300px
 
 .portfolio__title
   box-shadow 0 3px 5px rgba(0, 0, 0, 0.25)
@@ -28,3 +24,46 @@
   font-size 18px
   font-weight 600
   padding 26px 35px
+
+.portfolio__show-more
+  text-align center
+
+@media (min-width: tablet)
+  .portfolio__works
+    flex-flow row wrap
+    width tablet
+
+  .portfolio__item
+    margin-right 15px
+
+  .portfolio__item:nth-child(2n)
+    margin-right 0
+
+  .portfolio__img
+    height 211px
+    width 310px
+
+@media (min-width: screen)
+  .portfolio__works
+    width screen
+
+  .portfolio__item:nth-child(2n)
+    margin-right 15px
+
+  .portfolio__item:nth-child(3n)
+    margin-right 0
+
+  .portfolio__img
+    height 231px
+    width 330px
+
+@media (min-width: screen_large)
+  .portfolio__works
+    width screen_large
+
+  .portfolio__item:nth-child(3n)
+    margin-right 15px
+
+  .portfolio__img
+    height 281px
+    width 380px

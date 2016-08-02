@@ -10,3 +10,28 @@ head
 body.page
   include blocks/services/services.pug
   include blocks/portfolio/portfolio.pug
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+  script(src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js")
+  script.
+    // init Isotope
+    var $grid = $('.portfolio__works').isotope({
+      itemSelector: '.portfolio__item',
+      layoutMode: 'fitRows',
+      filter: '*'
+    });
+    // bind filter button click
+    $('.menu_portfolio').on( 'click', '.link_portfolio', function() {
+      var filterValue = $( this ).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+    });
+    // change is-checked class on buttons
+    $('.menu_portfolio').each( function( i, buttonGroup ) {
+      var $buttonGroup = $( buttonGroup );
+      $buttonGroup.on( 'click', '.link_portfolio', function() {
+        $buttonGroup.find('.link_portfolio-is-checked').removeClass('link_portfolio-is-checked');
+        $( this ).addClass('link_portfolio-is-checked');
+      });
+    });
+    $('.link_portfolio').click(function(event){
+      event.preventDefault();
+    });

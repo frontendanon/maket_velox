@@ -1,40 +1,41 @@
 section.portfolio
-  .wrapper
+  .wrapper.wrapper_portfolio
     .title PORTFOLIO
     ul.list.menu.menu_portfolio
       li
-        a.link.link_portfolio(href="#") ALL
+        a.link.link_portfolio.link_portfolio-is-checked(href="#" data-filter="*") ALL
       li
-        a.link.link_portfolio(href="#") ILLUSTRATIONS
+        a.link.link_portfolio(href="#" data-filter=".illustrations") ILLUSTRATIONS
       li
-        a.link.link_portfolio(href="#") LOGO
+        a.link.link_portfolio(href="#" data-filter=".logo") LOGO
       li
-        a.link.link_portfolio(href="#") BRANDING
+        a.link.link_portfolio(href="#" data-filter=".branding") BRANDING
       li
-        a.link.link_portfolio(href="#") WEB DESIGN
+        a.link.link_portfolio(href="#" data-filter=".web") WEB DESIGN
     .portfolio__works
-      .portfolio__item
+      .portfolio__item.web(data-category="web")
         .portfolio__img
           img(src="img/portfolio-agency.jpg")
         .portfolio__title Agency - PSD Template
-      .portfolio__item
+      .portfolio__item.branding(data-category="branding")
         .portfolio__img
           img(src="img/portfolio-vodka.jpg")
         .portfolio__title Pure Vodka Branding
-      .portfolio__item
+      .portfolio__item.web(data-category="web")
         .portfolio__img
           img(src="img/portfolio-web.jpg")
         .portfolio__title Web Design
-      .portfolio__item
+      .portfolio__item.logo(data-category="logo")
         .portfolio__img
           img(src="img/portfolio-everest.jpg")
         .portfolio__title Everest Logo
-      .portfolio__item
+      .portfolio__item.illustrations(data-category="illustrations")
         .portfolio__img
           img(src="img/portfolio-poster.jpg")
         .portfolio__title Poster Design
-      .portfolio__item
+      .portfolio__item.illustrations(data-category="illustrations")
         .portfolio__img
           img(src="img/portfolio-illustration.jpg")
         .portfolio__title illustration
+    div.portfolio__show-more
       a.link.link_show-more.button.button_show-more(href="#") SHOW MORE
