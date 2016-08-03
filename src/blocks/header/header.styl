@@ -1,0 +1,40 @@
+.header
+  background url(../img/header-bg.jpg)
+  background-size cover
+
+.header_wrap
+  align-items center
+  display flex
+  flex-flow row nowrap
+  justify-content space-between
+
+.header__title
+  color white
+  font-family font_serif
+  font-size 58px
+  font-weight 700
+  margin-top 200px
+  text-align center
+
+.header__description
+  color white
+  font-family font_sans-serif
+  font-size 25px
+  font-weight 400
+  margin-top 30px
+  text-align center
+
+.header__menu_list
+  display none
+  flex-flow column nowrap
+  position absolute
+  right 20px
+
+.header__menu_list_expand
+  display flex
+
+@media (min-width: screen)
+  .header__menu_list
+    display flex
+    flex-flow row nowrap
+    position relative

@@ -8,6 +8,21 @@
   justify-content center
   text-align center
 
+.menu__item_header
+  background rgba(white, 0.25)
+  border-bottom solid 1px blue
+  margin-left -50%
+  padding 10px 0
+  text-align center
+
 @media (min-width: tablet)
   .menu
     flex-flow row nowrap
+
+@media (min-width: screen)
+  .menu__item_header
+    background rgba(white, 0)
+    border-bottom solid 0px blue
+    margin-left 0
+    padding 10px 0
+    text-align center

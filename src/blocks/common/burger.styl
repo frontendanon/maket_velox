@@ -1,0 +1,35 @@
+.burger
+  border 0
+  background none
+  outline 0
+  padding 0
+  cursor pointer
+  border-bottom 4px solid white
+  width 28px
+
+.burger:before
+  content ""
+  display block
+  border-bottom 4px solid white
+  width 100%
+  margin-bottom 5px
+
+.burger:after
+  content ""
+  display block
+  border-bottom 4px solid white
+  width 100%
+  margin-bottom 5px
+
+.burger.open
+  border-bottom 4px solid transparent
+
+.burger.open:before
+  transform rotate(-405deg) translateY(1px) translateX(-3px)
+
+.burger.open:after
+  transform rotate(405deg) translateY(-4px) translateX(-5px)
+
+@media (min-width: screen)
+  .burger
+    display none
